@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Importer le fichier au format JSON
+wget https://data.gharchive.org/2018-07-15-12.json.gz
