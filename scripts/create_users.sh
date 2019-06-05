@@ -14,7 +14,13 @@ echo "*:*:*:super_admin:12345" > ~/.pgpass
 
 
 # connexion utilisateur super_admin
-psql --username=super_admin
+psql --username super_admin -c "SELECT 'Je suis connecté en super admin.';"
+
+rm -rf $DIR/../etc
+mkdir $DIR/../etc
+cp ~/.pgpass $DIR/../etc
+cp /etc/postgresql/11/main/pg_hba.conf $DIR/../etc
+
 
 
 
