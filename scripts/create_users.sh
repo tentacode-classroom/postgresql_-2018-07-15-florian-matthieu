@@ -11,16 +11,19 @@ sudo -u postgres psql -f $DIR/../sql/create_users.sql
 touch ~/.pgpass
 chmod 0600 ~/.pgpass 
 echo "*:*:*:super_admin:12345" > ~/.pgpass
+echo "*:*:github_events:github_events:12345" > ~/.pgpass
 
 
 # connexion utilisateur super_admin
 psql --username super_admin -c "SELECT 'Je suis connecté en super admin.';"
 
+# copie des fichiers pg_hba et pgpass
 rm -rf $DIR/../etc
 mkdir $DIR/../etc
 cp ~/.pgpass $DIR/../etc
 cp /etc/postgresql/11/main/pg_hba.conf $DIR/../etc
 
-
+# connexion utilisateur github_events
+psql --username github_events -c "SELECT 'Je suis connecté sur github.';"
 
 
