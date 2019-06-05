@@ -19,6 +19,12 @@ CREATE TABLE "repo" (
   url			varchar(255)
 );
 
+CREATE TABLE "issue" (
+  id			integer PRIMARY KEY,
+  title			varchar(255),
+  state			varchar(255)
+);
+
 CREATE TABLE "events" (
   id    		integer PRIMARY KEY,
   id_actor      	integer REFERENCES actor,
@@ -32,6 +38,11 @@ CREATE TABLE "watch_events" (
 ) INHERITS ("events");
 
 CREATE TABLE "push_events" (
-  ref			varchar(255),
-  size			integer
+  branch		varchar(255),
+  commit_count		integer
+) INHERITS ("events");
+
+CREATE TABLE "issue_events" (
+  id_issue		integer REFERENCES issue,
+  action		varchar(255)
 ) INHERITS ("events");
