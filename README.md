@@ -56,6 +56,6 @@ Ces différents fichiers sont appelés depuis les fichiers scripts.
 
 
 ## Dossier ETC
- Les fichiers présent dans ce dossier son les copies de nos fichiers `.pgpass`, `pg_hba.conf` .
- Le fichier `pgpass` permet aux utilisateurs de se connecter sans écrire les mot de passe.
- Le fichier `pg_hba.conf`  permet de choisir la façon dont l'utilisateur se connecte aux base de données.
+ Les fichiers présents dans ce dossier sont les copies de nos fichiers `.pgpass` et `pg_hba.conf` .
+ Le fichier `pgpass` permet aux utilisateurs de se connecter sans écrire de mot de passe.
+ Le fichier `pg_hba.conf`  permet de choisir la façon dont l'utilisateur se connecte aux bases de données.
