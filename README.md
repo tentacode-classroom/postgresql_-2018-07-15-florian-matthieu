@@ -3,7 +3,7 @@
 
 ## Scripts
 
- **⚠ L'ensemble des scripts sont a exécuter en sudo ⚠** 
+ **⚠ L'ensemble des scripts sont à exécuter en sudo ⚠** 
  
  
 ### Setup postgresql
