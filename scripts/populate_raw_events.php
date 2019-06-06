@@ -14,7 +14,7 @@ function addJsons(array $buffer)
 
     $values = implode('), (', array_fill(0, count($buffer), '?'));
 
-    $sql = "INSERT INTO event_raw(json_data) VALUES (".$values.")";
+    $sql = "INSERT INTO events_raw(data_json) VALUES (".$values.")";
 
     $statement = $connection->prepare($sql);
     $statement->execute($buffer);
