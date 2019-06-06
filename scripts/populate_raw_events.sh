@@ -12,3 +12,4 @@ php populate_raw_events.php
 
 
 #connexion a la BDD puis affichage des 10 premières lignes
+
