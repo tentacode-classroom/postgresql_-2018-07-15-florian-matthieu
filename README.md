@@ -47,9 +47,9 @@ Puis, il affiche les 10 premières les lignes de notre base de données.
 
 
 ## Dossier SQL
-L'ensemble des fichiers sql sont écrit au format SLQ pour :
-1. Créer = `create_database.sql`, `create_users.sql`,`populate_raw_events.sql `
-2. Insérer = `insert_false_data.sql`
+L'ensemble des fichiers sql sont écrit au format SQL pour :
+1. Créer = `create_database.sql` : La base de donnée et `create_users.sql` : Les rôles et utilisateurs
+2. Insérer = `insert_false_data.sql` `populate_raw_events.sql `
 3. Modifier les configurations = `update_configuration.sql` de la base de données
 
 Ces différents fichiers sont appelés depuis les fichiers scripts.
