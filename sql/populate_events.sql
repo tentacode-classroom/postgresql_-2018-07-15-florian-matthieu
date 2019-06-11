@@ -3,7 +3,10 @@
 TRUNCATE TABLE actor CASCADE;
 TRUNCATE TABLE repo CASCADE;
 TRUNCATE TABLE push_events CASCADE;
+TRUNCATE TABLE watch_events CASCADE;
+TRUNCATE TABLE issue_events CASCADE;
 TRUNCATE TABLE issue CASCADE;
+
 
 INSERT INTO actor (id, login, display_login, url, avatar_url)
 SELECT CAST (data_json -> 'actor' ->> 'id' AS BIGINT), CAST(data_json -> 'actor' -> 'login' AS VARCHAR), CAST (data_json -> 'actor' -> 'display_login' AS VARCHAR), CAST (data_json -> 'actor' -> 'url' AS VARCHAR), CAST (data_json -> 'actor' -> 'avatar_url' AS VARCHAR)

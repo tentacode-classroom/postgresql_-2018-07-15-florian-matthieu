@@ -13,6 +13,7 @@ pg_dumpall --roles-only --username=super_admin -f $DIR/../backup/roles.sql
 #On supprime la base de données
 psql --username=super_admin -c "DROP DATABASE github_events"
 
+psql --username=super_admin -c "CREATE DATABASE github_events"
 
 #On restore la base de données supprimer
 psql --username=super_admin -f ./backup/backup_github_events.sql
