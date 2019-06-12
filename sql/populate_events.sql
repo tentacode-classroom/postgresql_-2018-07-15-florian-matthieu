@@ -19,8 +19,9 @@ FROM events_raw
 ON CONFLICT DO NOTHING;
 
 INSERT INTO issue (id, title, state)
-SELECT CAST (data_json -> 'issue'  -> 'id' AS BIGINT), CAST (data_json -> 'issue' -> 'title' AS VARCHAR), CAST (data_json -> 'issue' -> 'state' AS VARCHAR)
+SELECT CAST (data_json -> 'payload' -> 'issue'  -> 'id' AS BIGINT), CAST (data_json -> 'payload' -> 'issue' -> 'title' AS VARCHAR(255)), CAST (data_json -> 'payload' -> 'issue' -> 'state' AS VARCHAR)
 FROM events_raw
+WHERE data_json ->> 'type' = 'IssuesEvent'
 ON CONFLICT DO NOTHING;
 
 
@@ -30,7 +31,7 @@ FROM events_raw
 WHERE data_json ->> 'type' = 'PushEvent';
 
 INSERT INTO issue_events (id, id_actor, id_repo, public_status, created_at, id_issue, action)
-SELECT CAST (data_json ->> 'id' AS BIGINT), CAST (data_json -> 'actor' -> 'id' AS BIGINT), CAST(data_json -> 'repo' -> 'id' AS BIGINT), CAST (data_json -> 'public' AS BOOLEAN), CAST (data_json ->> 'created_at' AS TIMESTAMP), CAST(data_json -> 'issue' -> 'id' AS BIGINT), CAST (data_json -> 'payload' -> 'action' AS VARCHAR)
+SELECT CAST (data_json ->> 'id' AS BIGINT), CAST (data_json -> 'actor' -> 'id' AS BIGINT), CAST(data_json -> 'repo' -> 'id' AS BIGINT), CAST (data_json -> 'public' AS BOOLEAN), CAST (data_json ->> 'created_at' AS TIMESTAMP), CAST(data_json -> 'payload' -> 'issue' -> 'id' AS BIGINT), CAST (data_json -> 'payload' -> 'action' AS VARCHAR)
 FROM events_raw
 WHERE data_json ->> 'type' = 'IssuesEvent';
 
