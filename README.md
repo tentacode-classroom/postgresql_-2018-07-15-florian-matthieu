@@ -46,11 +46,25 @@ Puis, il affiche les 10 premières les lignes de notre base de données.
 
 
 
+### Populate events
+Le fichier `populate_events.sh` va permettre d'insérer les données dans la base de données *github_events* grâce au fichier `populate_events.sql`.
+
+
+### Views
+Le fichier `create_stats.sh` va permettre de créer les vues via le fichier `create_stats.sql`. Il va nous montrer le *PushEvents* qui a le plus de commit, puis le statut de notre *IssuesEvents*.
+
+### Backup
+Le fichier `backup.sh` va permettre d'effectuer 2 backups de la table *github_events* :
+ - Un de la base de données (table, relation, données)
+ - Un pour les rôles.
+  
 ## Dossier SQL
+
 L'ensemble des fichiers sql sont écrits au format SQL pour :
-1. Créer = `create_database.sql` : La base de donnée et `create_users.sql` : Les rôles et utilisateurs
-2. Insérer = `insert_false_data.sql` `populate_raw_events.sql `
-3. Modifier les configurations = `update_configuration.sql` de la base de données
+
+1.  Créer =  `create_database.sql`  : La base de donnée,  `create_users.sql`  : Les rôles et utilisateurs,  `create_stats.sql` : Les Vues
+2.  Insérer =  `insert_false_data.sql`  `populate_raw_events.sql` `populate_events.sql`
+3.  Modifier les configurations =  `update_configuration.sql`  de la base de données
 
 Ces différents fichiers sont appelés depuis les fichiers scripts.
 
