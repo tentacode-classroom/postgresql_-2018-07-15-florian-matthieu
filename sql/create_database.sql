@@ -45,3 +45,7 @@ CREATE TABLE "issue_events" (
   id_issue		bigint REFERENCES issue,
   action		varchar(255)
 ) INHERITS ("events");
+
+GRANT ALL PRIVILEGES ON DATABASE github_events TO github_events;
+ALTER DATABASE github_events OWNER TO github_events;
+REASSIGN OWNED BY super_admin TO github_events;

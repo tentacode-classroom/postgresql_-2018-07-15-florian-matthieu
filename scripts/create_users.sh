@@ -17,6 +17,6 @@ echo "*:*:github_events:github_events:12345" >> ~/.pgpass
 psql --username super_admin -c "SELECT 'Je suis connecté en super admin.';"
 
 # connexion utilisateur github_events
-psql --username github_events -c "SELECT 'Je suis connecté sur github.';"
-
+#psql --username github_events -c "SELECT 'Je suis connecté sur github.';"
+echo "On n'affiche pas la connexion à github_events car on ne crée la base que par la suite" 
 
