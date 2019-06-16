@@ -5,6 +5,17 @@
 
  **⚠ L'ensemble des scripts sont à exécuter en sudo ⚠** 
  
+ Ils doivent être éxecuter dans cet ordre :
+ 
+ 1. Pour l'installation et la configuration : `setup_postgresql.sh` puis `update_configuration.sh`
+ 2. Pour récupérer les données : `import_github.sh`
+ 3. Créer les rôles : `create_users.sh` 
+ **On crée les rôles avant la table pour ne pas avoir à créer de table avec l'utilisateur postgres**
+ 5. Créer la base : `create_event_database.sh`
+ 6. Importer le json et l'inserer au format SQL : `populate_raw_events.sh` puis `populate_events.sh`
+ 7. Générer les statistiques : `create_stats.sh`
+ 8. Générer les fichiers de backup : `backup.sh`
+ 
  
 ### Setup postgresql
 
@@ -73,3 +84,4 @@ Ces différents fichiers sont appelés depuis les fichiers scripts.
  Les fichiers présents dans ce dossier sont les copies de nos fichiers `.pgpass` et `pg_hba.conf`.
  Le fichier `pgpass` permet aux utilisateurs de se connecter sans écrire de mot de passe.
  Le fichier `pg_hba.conf`  permet de choisir la façon dont l'utilisateur se connecte aux bases de données.
+
