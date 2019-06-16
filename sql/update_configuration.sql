@@ -1,2 +1,6 @@
 ALTER SYSTEM SET PORT = "1234";
 ALTER SYSTEM SET work_mem = '50MB';
+
+ALTER SYSTEM RESET all;
+
+ALTER SYSTEM SET listen_addresses='*';
